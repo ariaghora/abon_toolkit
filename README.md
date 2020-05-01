@@ -15,4 +15,4 @@
 
 ## Installation:
 
-`pip install --upgrade git+https://github.com/ariaghora/torch_kernel.git`
+`pip install --upgrade git+https://github.com/ariaghora/abon_toolkit.git`
