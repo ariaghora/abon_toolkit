@@ -23,4 +23,4 @@ def minibatchify(X, y=None, batch_size=32, shuffle=True):
         if y is not None:
             ret_y.append(y[i:i+batch_size])
             
-    return (ret_X, ret_y) if y is not None else ret_X
+    return zip(ret_X, ret_y) if y is not None else ret_X
