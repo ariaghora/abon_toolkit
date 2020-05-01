@@ -12,6 +12,14 @@ def euclidean_distances(x, y, squared=True):
     distances_squared = norms - 2 * x.mm(y.t())
     return distances_squared if squared else torch.sqrt(torch.abs(distances_squared))
 
+def mmd_rbf(x, y, deg=2):
+    m = x.shape[0]
+    n = y.shape[0]
+    return (
+        (torch.sum(rbf_kernel(x, x)) / (m**2)) - 
+        (torch.sum(rbf_kernel(x, y)) * (2 / (m*n))) + 
+        (torch.sum(rbf_kernel(y, y)) / (n**2)))
+
 def rbf_kernel(x, y, gamma=None):
     assert(x.shape[1] == y.shape[1])
     
